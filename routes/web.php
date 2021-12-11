@@ -15,6 +15,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
+  Route::get('idea/create', 'Admin\IdeaController@add');
+  Route::post('idea/create', 'Admin\IdeaController@create');
+
+  Route::get('idea', 'Admin\IdeaController@index');
+
+  Route::get('idea/edit','Admin\IdeaController@edit');
+  Route::post('idea/edit','Admin\IdeaController@update');
+  Route::get('idea/delete', 'Admin\IdeaController@delete');
+
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'IdeaController@index');
