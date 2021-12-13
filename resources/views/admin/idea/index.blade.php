@@ -15,7 +15,7 @@
                     <div class="form-group row">
                         <label class="col-md-2">タイトル</label>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" name="cond_name" value="{{ $cond_na }}">
+                            <input type="text" class="form-control" name="cond_name" value="{{ $cond_name }}">
                         </div>
                         <div class="col-md-2">
                             {{ csrf_field() }}
@@ -41,7 +41,7 @@
                                 <tr>
                                     <th>{{ $idea->id }}</th>
                                     <td>{{ str_limit($idea->name, 100) }}</td>
-                                    <td>{{ str_limit($idea->body, 250) }}</td>
+                                    <td>{{ str_limit($idea->contents, 250) }}</td>
 
 
                                     <td>

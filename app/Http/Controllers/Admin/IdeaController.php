@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use App\Idea;
 
 class IdeaController extends Controller
 {
@@ -23,24 +25,25 @@ class IdeaController extends Controller
       return view('admin.idea.create');
     }
 
-     public function create(Request $request)
-     {
-       $this->validate($request,Idea::$rules);
+    public function create(Request $request)
+    {
+      //$this->validate($request,Idea::$rules);
+      $id = Auth::id();
+      $idea = new Idea;
+      $form = $request->all();
 
-       $idea = new Idea;
-       $form = $request->all();
-
-       if (isset($form['image'])) {
-         $path = $request->file('image')->store('public/image');
-         $idea->image_path = basename($path);
+      if (isset($form['image'])) {
+      $path = $request->file('image')->store('public/image');
+      $idea->image_path = basename($path);
        } else {
          $idea->image_path = null;
        }
 
-       unset($from['_token']);
+       unset($form['_token']);
 
        unset($form['image']);
-
+       
+       $form['user_id'] = $id;
        $idea->fill($form);
        $idea->save();
 
