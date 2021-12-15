@@ -13,9 +13,9 @@ class IdeaController extends Controller
    {
     $cond_name = $request->cond_name;
     if ($cond_name !=''){
-      $posts = Idea::where('name', $cond_name)->get();
+      $posts = Idea::where('user_id', Auth::id())->where('name', $cond_name)->get();
      } else {
-      $posts = Idea::all();
+      $posts = Idea::where('user_id', Auth::id())->get();
     }
       return view('admin.idea.index',['posts' => $posts,'cond_name' => $cond_name]);
     }
@@ -42,7 +42,7 @@ class IdeaController extends Controller
        unset($form['_token']);
 
        unset($form['image']);
-       
+
        $form['user_id'] = $id;
        $idea->fill($form);
        $idea->save();
