@@ -38,6 +38,8 @@
                         </ul>
 
                         <ul class="navbar-nav ml-auto">
+                          <li><a href="{{ action("Admin\IdeaController@index") }}">MYページ</a></li>
+                          <li><a href="{{ action("IdeaController@index") }}">一覧</a></li>
                         </ul>
 
                     </div>

@@ -39,7 +39,7 @@
                         <tbody>
                             @foreach($posts as $idea)
                                 <tr>
-                                    <th>{{ $idea->id }}</th>
+                                    <th>{{ $idea->id }}<a href="/{{$idea->id}}/comment/create">コメント</a></th>
                                     <td>{{ str_limit($idea->name, 100) }}</td>
                                     <td>{{ str_limit($idea->contents, 250) }}</td>
 

@@ -11,7 +11,7 @@ class IdeaController extends Controller
   public function index(Request $request)
   {
     $cond_name = $request->cond_name;
-    if ($cond_name !='') {
+    if (isset($cond_name)) {
       $posts =Idea::where('name', $cond_name) . oederByDesc('updated_at', 'desc')->get();
     } else {
       $posts = Idea::all()->sortByDesc('updated_at');

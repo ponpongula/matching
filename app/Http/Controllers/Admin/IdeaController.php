@@ -52,7 +52,7 @@ class IdeaController extends Controller
 
      public function edit(Request $request)
      {
-       $news = Idea::find($request->id);
+       $idea = Idea::find($request->id);
        if (empty($idea)){
          abort(404);
      }

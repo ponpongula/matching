@@ -13,4 +13,8 @@ class Idea extends Model
       'neme' => 'required',
       'contents' => 'required',
     );
+    public function comments()
+    {
+      return $this->hasmany('App\Comments');
+    }
 }

@@ -38,6 +38,8 @@
                         </ul>
 
                         <ul class="navbar-nav ml-auto">
+                          <li><a href="{{ action("HomeController@index") }}">ログイン</a></li>
+                          <li><a href="{{ action("Admin\IdeaController@add") }}">新規作成</a></li>
                         </ul>
 
                     </div>
