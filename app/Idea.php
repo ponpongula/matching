@@ -15,6 +15,6 @@ class Idea extends Model
     );
     public function comments()
     {
-      return $this->hasmany('App\Comments');
+      return $this->hasMany(Comment::class);
     }
 }

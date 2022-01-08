@@ -16,12 +16,14 @@ class IdeaController extends Controller
     } else {
       $posts = Idea::all()->sortByDesc('updated_at');
     }
-    if (count($posts) > 0) {
-      $headline = $posts->shift();
-    } else {
-      $headline = null;
-    }
-    return view('idea.index', ['headline' => $headline, 'posts' => $posts, 'cond_name' => $cond_name]);
+    return view('idea.index', ['posts' => $posts, 'cond_name' => $cond_name]);
+  }
+
+  public function detail(Request $request, $idea_id)
+  {
+     $idea = Idea::find($idea_id);
+     $comments = $idea->comments;
+     return view('idea.detail', ['idea' => $idea, 'comments' => $comments]);
   }
 
 }

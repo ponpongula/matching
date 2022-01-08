@@ -13,7 +13,7 @@
             <div class="col-md-8">
                 <form action="{{ action('Admin\IdeaController@index') }}" method="get">
                     <div class="form-group row">
-                        <label class="col-md-2">タイトル</label>
+                        <label class="col-md-2">アイディア名</label>
                         <div class="col-md-8">
                             <input type="text" class="form-control" name="cond_name" value="{{ $cond_name }}">
                         </div>
@@ -31,15 +31,14 @@
                     <table class="table table-dark">
                         <thead>
                             <tr>
-                                <th width="10%">ID</th>
-                                <th width="20%">タイトル</th>
-                                <th width="50%">本文</th>
+                                <th width="10%">アイディア名</th>
+                                <th width="20%">内容</th>
+                                <th width="50%">編集</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($posts as $idea)
                                 <tr>
-                                    <th>{{ $idea->id }}<a href="/{{$idea->id}}/comment/create">コメント</a></th>
                                     <td>{{ str_limit($idea->name, 100) }}</td>
                                     <td>{{ str_limit($idea->contents, 250) }}</td>
 

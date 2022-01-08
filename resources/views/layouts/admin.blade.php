@@ -26,7 +26,7 @@
             <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
                 <div class="container">
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        idea
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -38,7 +38,7 @@
                         </ul>
 
                         <ul class="navbar-nav ml-auto">
-                          <li><a href="{{ action("Admin\IdeaController@index") }}">MYページ</a></li>
+                          <li><a href="{{ action("Admin\IdeaController@index") }}">マイページ</a></li>
                           <li><a href="{{ action("IdeaController@index") }}">一覧</a></li>
                         </ul>
 
