@@ -10,9 +10,9 @@
                         <div class="row">
                            <div class="text col-md-6">
                                 <div class="cotents mt-3">
-                                    {{ str_limit($idea->contents, 1500) }}
+                                    {{ str_limit($idea->contents, 150) }}
                                 </div>
-                              <div>
+                              <div class="form-inline ml-auto">
                              　　<a href="/{{$idea->id}}/comment/create">コメント</a>
                               </div>
                           </div>
@@ -23,6 +23,7 @@
                   <div class>
                     {{ $comment->contents }}
                   </div>
+                  <hr color="#c0c0c0">
                   @endforeach
             </div>
         </div>

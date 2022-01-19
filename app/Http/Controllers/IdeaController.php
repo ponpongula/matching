@@ -10,13 +10,14 @@ class IdeaController extends Controller
 {
   public function index(Request $request)
   {
-    $cond_name = $request->cond_name;
-    if (isset($cond_name)) {
-      $posts =Idea::where('name', $cond_name) . oederByDesc('updated_at', 'desc')->get();
+    // $genres = Genre::all();
+    $cond_genre = $request->cond_genre;
+    if (isset($cond_genre)) {
+      $posts =Idea::where('genre', $cond_genre)->orderByDesc('updated_at', 'desc')->get();
     } else {
       $posts = Idea::all()->sortByDesc('updated_at');
     }
-    return view('idea.index', ['posts' => $posts, 'cond_name' => $cond_name]);
+    return view('idea.index', ['posts' => $posts]);
   }
 
   public function detail(Request $request, $idea_id)

@@ -23,6 +23,14 @@
                         </div>
                     </div>
                     <div class="form-group row">
+                      <label class="col-md-2" for="genre">ジャンル選択</label>
+                      <div class="col-md-10">
+                              @foreach($genres as $genre)
+                                <input type="checkbox" name="genre_ids[]" value={{$genre->id}}>{{$genre->name}}</input>
+                              @endforeach
+                       </div>
+                    </div>
+                    <div class="form-group row">
                         <label class="col-md-2" for="body">内容</label>
                         <div class="col-md-10">
                             <textarea class="form-control" name="contents" rows="20">{{ old('body') }}</textarea>
@@ -35,7 +43,7 @@
                         </div>
                     </div>
                     {{ csrf_field() }}
-                    <input type="submit" class="btn btn-primary" value="更新">
+                    <input type="submit" class="btn btn-primary" value="投稿">
                 </form>
             </div>
         </div>

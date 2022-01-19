@@ -3,6 +3,12 @@
 
 @section('content')
     <div class="container">
+      <div class="form-group row">
+           <label class="col-md-2" for="image">アイコン</label>
+          <div class="col-md-10">
+              <input type="file" class="img-thumbnail" name="image">
+          </div>
+      </div>
         <div class="row">
             <h2>アイディア一覧</h2>
         </div>

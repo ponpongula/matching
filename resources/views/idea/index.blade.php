@@ -3,6 +3,7 @@
 @section('content')
     <div class="container">
         <hr color="#c0c0c0">
+        <a href="{{ action('IdeaController@index',['cond_genre' => "SNS系"]) }}">SNS系</a>
         <div class="row">
             <div class="posts col-md-8 mx-auto mt-3">
                 @foreach($posts as $post)

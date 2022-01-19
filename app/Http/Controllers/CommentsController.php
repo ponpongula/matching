@@ -21,7 +21,7 @@ class CommentsController extends Controller
     $comment = new Comment;
     $comment->fill($savedata)->save();
 
-    return redirect('admin/idea');
+    return redirect('/idea/'. $idea_id);
   }
 
   public function add($idea_id)

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateIdeaTable extends Migration
+class CreateGenreIdeaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateIdeaTable extends Migration
      */
     public function up()
     {
-        Schema::create('idea', function (Blueprint $table) {
+        Schema::create('genre_idea', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('user_id');
-            $table->string('name');
-            $table->string('contents');
-            $table->string('image_path')->nullable();
+            $table->integer('genre_id');
+            $table->integer('idea_id');
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ class CreateIdeaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('idea');
+        Schema::dropIfExists('genre_idea');
     }
 }

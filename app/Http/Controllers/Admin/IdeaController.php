@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Idea;
+use App\Genre;
 
 class IdeaController extends Controller
 {
@@ -22,7 +23,8 @@ class IdeaController extends Controller
 
     public function add()
     {
-      return view('admin.idea.create');
+      $genres = Genre::all();
+      return view('admin.idea.create',['genres' => $genres]);
     }
 
     public function create(Request $request)
@@ -38,6 +40,9 @@ class IdeaController extends Controller
        } else {
          $idea->image_path = null;
        }
+       $genre_ids = $form['genre_ids'];
+
+       unset($form['genre_ids']);
 
        unset($form['_token']);
 
@@ -46,6 +51,7 @@ class IdeaController extends Controller
        $form['user_id'] = $id;
        $idea->fill($form);
        $idea->save();
+       $idea->genres()->attach($genre_ids);
 
        return redirect('admin/idea');
      }

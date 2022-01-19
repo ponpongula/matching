@@ -37,9 +37,9 @@
                         <ul class="navbar-nav mr-auto">
                         </ul>
 
-                        <ul class="navbar-nav ml-auto">
-                          <li><a href="{{ action("Admin\IdeaController@index") }}">マイページ</a></li>
-                          <li><a href="{{ action("IdeaController@index") }}">一覧</a></li>
+                        <ul class="navbar-nav ml-auto　row">
+                          <li class="col"><a href="{{ action("Admin\IdeaController@index") }}">マイページ</a></li>
+                          <li class="col"><a href="{{ action("IdeaController@index") }}">一覧</a></li>
                         </ul>
 
                     </div>
