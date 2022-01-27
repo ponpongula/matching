@@ -15,15 +15,23 @@
                         </ul>
                     @endif
                     <div class="form-group row">
-                        <label class="col-md-2" for="name">タイトル</label>
+                        <label class="col-md-2" for="name">アイディア名</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control" name="name" value="{{ $idea_form->name }}">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2" for="body">本文</label>
+                      <label class="col-md-2" for="genre">ジャンル選択</label>
+                      <div class="col-md-10">
+                              @foreach($genres as $genre)
+                                <input type="checkbox" name="genre_ids[]" value={{$genre->id}} {{in_array($genre->id, $idea_genres) ? "checked" : "" }}>{{$genre->name}}
+                              @endforeach                     //genre[]
+                       </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-2" for="contents">内容</label>
                         <div class="col-md-10">
-                            <textarea class="form-control" name="body" rows="20">{{ $idea_form->body }}
+                            <textarea class="form-control" name="contents" rows="20">{{ $idea_form->contents }}
                             </textarea>
                         </div>
                     </div>
@@ -50,7 +58,7 @@
                     </div>
                 </form>
 
-                <div class="row mt-5">
+                <!-- <div class="row mt-5">
                   <div class="col-md-4 mx-auto">
                     <h2>編集履歴</h2>
                     <ul class="list-group">
@@ -62,7 +70,7 @@
                         @endif
                     </ul>
                   </div>
-                </div>
+                </div> -->
 
             </div>
         </div>

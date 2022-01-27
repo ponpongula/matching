@@ -3,7 +3,10 @@
 @section('content')
     <div class="container">
         <hr color="#c0c0c0">
-        <a href="{{ action('IdeaController@index',['cond_genre' => "SNS系"]) }}">SNS系</a>
+        @foreach($genres as $genre)
+          <a href="{{ action('IdeaController@index',['genre_id' => $genre->id]) }}">{{$genre->name}}</a>
+        @endforeach
+        <hr color="#c0c0c0">
         <div class="row">
             <div class="posts col-md-8 mx-auto mt-3">
                 @foreach($posts as $post)
@@ -28,6 +31,9 @@
                               <!-- <div class="comment text-right">
                              　　<a href="/{{$post->id}}/comment/create">コメント</a>
                               </div> -->
+                        @foreach($post->genres as $genre)
+                        {{ $genre->name }}
+                        @endforeach
                           </div>
                       </div>
                   </div>

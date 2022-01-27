@@ -31,7 +31,7 @@
                        </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2" for="body">内容</label>
+                        <label class="col-md-2" for="contents">内容</label>
                         <div class="col-md-10">
                             <textarea class="form-control" name="contents" rows="20">{{ old('body') }}</textarea>
                         </div>

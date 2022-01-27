@@ -38,9 +38,43 @@
                         </ul>
 
                         <ul class="navbar-nav ml-auto row">
-                          <li class="col"><a href="{{ action("HomeController@index") }}">ログイン</a></li>
-                          <li class="col"><a href="{{ action("Admin\IdeaController@index") }}">マイページ</a></li>
-                          <li class="col"><a href="{{ action("Admin\IdeaController@add") }}">新規作成</a></li>
+                          @guest
+                              <li class="nav-item">
+                                  <a class="nav-link" href="{{ route('login') }}">{{ __('ログイン') }}</a>
+                              </li>
+                              @if (Route::has('register'))
+                                  <li class="nav-item">
+                                      <a class="nav-link" href="{{ route('register') }}">{{ __('アカウント登録') }}</a>
+                                  </li>
+                              @endif
+                            @else
+                              <li class="nav-item dropdown">
+                                  <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                      {{ Auth::user()->name }} <span class="caret"></span>
+                                  </a>
+                                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                      <a class="dropdown-item" href="{{ route('logout') }}"
+                                         onclick="event.preventDefault();
+                                                       document.getElementById('logout-form').submit();">
+                                          {{ __('ログアウト') }}
+                                      </a>
+
+                                      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                          @csrf
+                                      </form>
+                                  </div>
+                                  <li class="nav-item">
+                                    <a class="nav-link" href="{{ action("Admin\IdeaController@index") }}">マイページ
+                                    </a>
+                                  </li>
+                                  <li class="nav-item">
+                                    <a class="nav-link" href="{{ action("Admin\IdeaController@add") }}">新規作成
+                                   </a>
+                                 </li>
+                              </li>
+                          @endguest
+                          <!-- <li class="col"><a href="{{ action("Admin\IdeaController@index") }}">マイページ</a></li>
+                          <li class="col"><a href="{{ action("Admin\IdeaController@add") }}">新規作成</a></li> -->
                         </ul>
 
                     </div>

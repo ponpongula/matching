@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\CommentRequest;
 use Illuminate\Support\Facades\Auth;
+use App\Idea;
 use App\Comment;
 
 class CommentsController extends Controller
@@ -26,6 +27,7 @@ class CommentsController extends Controller
 
   public function add($idea_id)
   {
-    return view('comment.create',['idea_id'=>$idea_id]);
+    // $idea = Idea::find($idea_id);
+    return view('comment.create', ['idea_id' => $idea_id]);
   }
 }
