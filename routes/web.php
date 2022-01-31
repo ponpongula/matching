@@ -36,3 +36,6 @@ Route::get('/', 'IdeaController@index');
 Route::get('/{idea_id}/comment/create', 'CommentsController@add');
 Route::post('/{idea_id}/comment/create', 'CommentsController@create');
 Route::get('/idea/{idea_id}','IdeaController@detail');
+
+Route::get('/{idea}/nice/', 'NiceController@nice')->name('nice');
+Route::get('/{idea}/unnice/', 'NiceController@unnice')->name('unnice');

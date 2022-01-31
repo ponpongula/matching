@@ -91,12 +91,6 @@ class IdeaController extends Controller
     $idea->fill($idea_form)->save();
     $idea->genres()->attach($genre_ids);
 
-
-    // $history = new History();
-    // $history -> idea_id = $idea->id;
-    // $history -> edited_at = Carbon::now();
-    //
-    // $history -> save();
     return redirect('admin/idea');
   }
 
