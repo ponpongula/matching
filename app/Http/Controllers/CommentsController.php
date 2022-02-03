@@ -27,7 +27,6 @@ class CommentsController extends Controller
 
   public function add($idea_id)
   {
-    // $idea = Idea::find($idea_id);
     return view('comment.create', ['idea_id' => $idea_id]);
   }
 }

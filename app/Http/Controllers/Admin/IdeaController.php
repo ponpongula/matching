@@ -29,7 +29,7 @@ class IdeaController extends Controller
 
   public function create(Request $request)
   {
-    //$this->validate($request,Idea::$rules);
+    // $this->validate($request, Idea::$rules);
     $id = Auth::id();
     $idea = new Idea;
     $form = $request->all();
@@ -89,6 +89,7 @@ class IdeaController extends Controller
     unset($idea_form['_token']);
 
     $idea->fill($idea_form)->save();
+    $idea->genres()->detach();
     $idea->genres()->attach($genre_ids);
 
     return redirect('admin/idea');

@@ -25,7 +25,7 @@
                       <div class="col-md-10">
                               @foreach($genres as $genre)
                                 <input type="checkbox" name="genre_ids[]" value={{$genre->id}} {{in_array($genre->id, $idea_genres) ? "checked" : "" }}>{{$genre->name}}
-                              @endforeach                     //genre[]
+                              @endforeach                   
                        </div>
                     </div>
                     <div class="form-group row">

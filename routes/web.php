@@ -27,15 +27,16 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
   Route::get('idea/delete','Admin\IdeaController@delete');
 });
 
-Auth::routes();
+  Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+  Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/', 'IdeaController@index');
+  Route::get('/', 'IdeaController@index');
 
-Route::get('/{idea_id}/comment/create', 'CommentsController@add');
-Route::post('/{idea_id}/comment/create', 'CommentsController@create');
-Route::get('/idea/{idea_id}','IdeaController@detail');
+  Route::get('/{idea_id}/comment/create', 'CommentsController@add');
+  Route::post('/{idea_id}/comment/create', 'CommentsController@create');
+  
+  Route::get('/idea/{idea_id}','IdeaController@detail');
 
-Route::get('/{idea}/nice/', 'NiceController@nice')->name('nice');
-Route::get('/{idea}/unnice/', 'NiceController@unnice')->name('unnice');
+  Route::get('/{idea}/nice/', 'NiceController@nice')->name('nice');
+  Route::get('/{idea}/unnice/', 'NiceController@unnice')->name('unnice');

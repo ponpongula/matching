@@ -39,7 +39,9 @@
                             <tr>
                                 <th width="10%">アイディア名</th>
                                 <th width="20%">内容</th>
-                                <th width="50%">編集</th>
+                                <!-- <th width="20%">ジャンル</th> -->
+                                <th width="50%" class = "text-right">編集</th>
+
                             </tr>
                         </thead>
                         <tbody>
@@ -47,13 +49,13 @@
                                 <tr>
                                     <td>{{ str_limit($idea->name, 100) }}</td>
                                     <td>{{ str_limit($idea->contents, 250) }}</td>
-
+                                    
 
                                     <td>
-                                      <div>
+                                      <div class = "text-right">
                                         <a href="{{ action('Admin\IdeaController@edit',['id' => $idea->id]) }}">編集</a>
                                       </div>
-                                      <div>
+                                      <div class = "text-right">
                                         <a href="{{ action('Admin\IdeaController@delete', ['id' => $idea->id]) }}">削除</a>
                                       </div>
                                     </td>

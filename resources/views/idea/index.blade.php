@@ -4,7 +4,7 @@
     <div class="container">
         <hr color="#c0c0c0">
         @foreach($genres as $genre)
-          <a href="{{ action('IdeaController@index',['genre_id' => $genre->id]) }}">{{$genre->name}}</a>
+          <a href="{{ action('IdeaController@index',['genre_id' => $genre->id]) }}">{{$genre->name.'/'}}</a>
         @endforeach
         <hr color="#c0c0c0">
         <div class="row">
@@ -34,24 +34,22 @@
                                     @foreach($post->genres as $genre)
                                     {{ $genre->name }}
                                     @endforeach
-
-
-                              <span>
+                              <span class="col-12 clearfix">
                                   @auth
                                       @if($post->is_nice_by_auth_user())
-                                    	   <a href="{{ route('unnice', $post) }}" class="btn btn-success btn-sm">
-                                    		     いいね
+                                    	   <a href="{{ route('unnice', $post) }}" class="btn btn-success btn-sm float-right test-box">
+                                           いいね
                                     	   </a>
+                                         <span class="badge float-right test-box">
+                                           {{ $post->nices->count() }}
+                                         </span>
                                       @else
-                                        	<a href="{{ route('nice', $post) }}" class="btn btn-secondary btn-sm">
+                                        	<a href="{{ route('nice', $post) }}" class="btn btn-secondary btn-sm float-right test-box">
                                         		いいね
                                             <img src="{{asset('icons/nicebutton.png')}}" width="20px">
                                         	</a>
                                       @endif
                                   @endauth
-                                  <span class="badge">
-                                    {{ $post->nices->count() }}
-                                  </span>
                               </span>
                           </div>
                       </div>
