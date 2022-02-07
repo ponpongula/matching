@@ -13,7 +13,7 @@ class NiceController extends Controller
   public function nice(Request $request, Idea $idea) {
     $nice = New Nice();
     $nice->idea_id = $idea->id;
-    $nice->user_id=Auth::user()->id;
+    $nice->user_id = Auth::user()->id;
     $nice->save();
     return back();
   }

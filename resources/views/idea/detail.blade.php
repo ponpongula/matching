@@ -15,6 +15,25 @@
                               <div class="form-inline ml-auto">
                              　　<a href="/{{$idea->id}}/comment/create">コメント</a>
                               </div>
+                              <span class="col-12 clearfix">
+                              @foreach($posts as $post)
+                              @auth
+                                  @if($post->is_nice_by_auth_user())
+                                     <a href="{{ route('unnice', $post) }}" class="btn btn-success btn-sm float-right test-box">
+                                       いいね
+                                     </a>
+                                     <span class="badge float-right test-box">
+                                       {{ $post->nices->count() }}
+                                     </span>
+                                  @else
+                                      <a href="{{ route('nice', $post) }}" class="btn btn-secondary btn-sm float-right test-box">
+                                        いいね
+                                      <img src="{{ asset('icons/nicebutton.png') }}" width="20px">
+                                      </a>
+                                @endif
+                            @endauth
+                            @endforeach
+                          </span>
                           </div>
                       </div>
                   </div>
